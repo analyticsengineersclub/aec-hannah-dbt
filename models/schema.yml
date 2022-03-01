@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: customers
-    description: 'cleaned up table of customers'
+    description: '{{ doc("customer_doc") }}'
     columns:
       - name: customer_id
         tests:
@@ -19,4 +19,6 @@ models:
       - name: customers
         tests:
           - unique
-          - not_null             
+          - not_null
+          - accepted_values:
+              values: ['placed', 'shipped', 'completed', 'returned']             

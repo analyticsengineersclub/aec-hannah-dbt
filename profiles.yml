@@ -3,7 +3,7 @@ coffee_shop:
     dev:
       type: bigquery
       method: oauth
-      project: coffee_shop # or -thursdays, depending on your cohort
+      project: aec-2022-02-thursdays # or -thursdays, depending on your cohort
       schema: dbt_hannah-parker # Adjust this to dbt_<your_github_username>.
       threads: 8
       timeout_seconds: 300

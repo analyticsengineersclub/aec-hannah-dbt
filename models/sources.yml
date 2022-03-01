@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: coffee_shop
+    description: coffee shop schema; where prod coffee shop data goes
+    freshness:
+      error_after:
+        count: 1
+        period: hour
+    loaded_at_field: created_at
+    project: analytics-engineers-club
+    tables:
+      - name: customers
+        description: production customer-level data gets sent here daily, at 2 PM UTC
+        freshness:
+          error_after:
+            count: 1
+            period: hour
+        columns: 
+          - name: id
+            tests:
+              - unique
+      - name: orders
+        description: production order-level data gets sent here real time as orders are placed
